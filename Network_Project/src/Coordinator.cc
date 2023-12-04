@@ -20,6 +20,24 @@ Define_Module(Coordinator);
 void Coordinator::initialize()
 {
     // TODO - Generated method body
+    std::ifstream myfile;
+    myfile.open("contributer.txt");
+    std::string mystring="";
+    if ( myfile.is_open() ) {
+    char mychar;
+    while ( myfile ) {
+    mychar = myfile.get();
+    if(mychar!='ÿ' && mychar!=' ')
+    {
+        mystring+=mychar;
+    }
+    }
+    }
+    char chart=mystring[0];
+    int intValue = std::atoi(&chart);
+    cMessage *msg=new cMessage(mystring.c_str());
+    std::cout << intValue;
+    send(msg, "out",  intValue);
 }
 
 void Coordinator::handleMessage(cMessage *msg)
