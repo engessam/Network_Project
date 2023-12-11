@@ -18,6 +18,8 @@
 
 #include <omnetpp.h>
 #include <fstream>
+#include <sstream>
+
 using namespace omnetpp;
 
 /**

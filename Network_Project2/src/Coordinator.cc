@@ -15,32 +15,50 @@
 
 #include "Coordinator.h"
 
+
 Define_Module(Coordinator);
 
 void Coordinator::initialize()
 {
     // TODO - Generated method body
     std::ifstream myfile;
-    myfile.open("contributer.txt");
-    std::string mystring="";
-    if ( myfile.is_open() ) {
-    char mychar;
-    while ( myfile ) {
-    mychar = myfile.get();
-    if(mychar!='ÿ' && mychar!=' ')
-    {
-        mystring+=mychar;
-    }
-    }
-    }
-    char chart=mystring[0];
-    int intValue = std::atoi(&chart);
-    cMessage *msg=new cMessage(mystring.c_str());
-    std::cout << intValue;
-    send(msg, "out",  intValue);
+           myfile.open("D:/nnnn/omnetpp-6.0.1/samples/Network_Project/src/contributer.txt", std::ios::in);
+
+           if (!myfile.is_open())
+           {
+               EV_ERROR << "Error opening file!" << endl;
+           }
+
+           std::string mystring="";
+           if ( myfile.is_open() )
+           {
+               EV<<"BYEESSAM "<<endl;
+               char mychar;
+               std::string line;
+               char c;
+               while (myfile.get(c))
+               {
+                   if (c !=' ')
+                   EV << "Read line: " << c << endl;
+                   mystring+=c;
+
+               }
+           }
+           char chart=mystring[0];
+           int intValue = std::atoi(&chart);
+          cMessage *  msg= new cMessage( mystring.c_str() ) ;
+           //std::cout <<"heeello: " <<intValue;
+           send(msg, "out",  intValue);
+
+
 }
 
 void Coordinator::handleMessage(cMessage *msg)
 {
     // TODO - Generated method body
+
+
+
+
+
 }

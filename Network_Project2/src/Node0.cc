@@ -25,4 +25,8 @@ void Node0::initialize()
 void Node0::handleMessage(cMessage *msg)
 {
     // TODO - Generated method body
+  //  send(msg,"out",1);
+    EV<<"HI KIRO"<<endl;
+     send(msg,"out",0);
+
 }

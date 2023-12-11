@@ -23,5 +23,5 @@ simple Node1
     @display("i=device/modem");
     gates:
         input in[2];
-        output out;
+        output out[2];
 }
